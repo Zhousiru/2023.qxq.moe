@@ -27,3 +27,7 @@ i.icon.icon-twitter:before {
 .icon-chevron-right:before {
     content: "\e904";
 }
+
+.icon-plus:before {
+    content: "\e905";
+}

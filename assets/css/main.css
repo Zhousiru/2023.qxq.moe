@@ -6,6 +6,7 @@ body {
     margin: 0;
     background-color: rgb(241, 242, 243);
     font-family: "Noto Sans SC", sans-serif;
+    overflow-x: hidden;
 }
 
 #container {
@@ -29,6 +30,7 @@ a {
     flex-direction: column;
     gap: 20px;
     align-items: center;
+    margin: 50px 0 10px;
 }
 
 #toggle-lang {
@@ -161,7 +163,7 @@ button {
  * Intro / More Toggle Animation (Full)
  */
 
-@media (min-width: 691px) {
+@media not screen and (max-width: 690px) {
     /*** view toggle main animation ***/
 
     #intro,
@@ -237,31 +239,18 @@ button {
  * Intro / More Toggle Animation (Lite)
  */
 
-@media (max-width: 690px) {
+@media screen and (max-width: 690px) {
 
     #intro,
     #more {
-        transition: all .3s;
-    }
-
-    #intro.fade-out {
-        transform: translateY(-100vh);
-    }
-
-    #more.fade-out {
-        transform: translateY(100vh);
+        transition: opacity .3s, transform .3s;
     }
 
     .fade-out {
         opacity: 0;
-        max-height: 0;
-        padding: 0;
-        overflow: hidden;
-    }
-
-    #intro.fade-in,
-    #more.fade-in {
-        max-height: 100vmax;
+        position: absolute;
+        visibility: hidden;
+        transform: scale(.9);
     }
 
     #intro #link button>i,
@@ -270,11 +259,11 @@ button {
     }
 
     #intro.fade-out #link button>i {
-        transform: rotate(-90deg);
+        transform: rotate(45deg);
     }
 
     #more.fade-out ul button>i {
-        transform: rotate(90deg);
+        transform: rotate(0);
     }
 }
 
@@ -379,9 +368,13 @@ button {
     display: none;
 }
 
-@media (max-width: 690px) {
+@media screen and (max-width: 690px) {
     .lite {
         display: unset;
+    }
+
+    .full {
+        display: none;
     }
 
     #container {
@@ -405,6 +398,10 @@ button {
     #toggle-lang {
         transform: none;
         margin: 20px;
+    }
+
+    #intro {
+        margin: 0 0 20px;
     }
 
     #link {
@@ -455,16 +452,12 @@ button {
         text-align: center;
     }
 
-    #intro #link button>i {
-        transform: rotate(90deg);
-    }
-
     #more ul button>i {
-        transform: rotate(-90deg);
+        transform: rotate(45deg);
     }
 }
 
-@media (max-width: 410px) {
+@media screen and (max-width: 410px) {
     #side-card .divider-h {
         display: none;
     }
