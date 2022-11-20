@@ -1,0 +1,471 @@
+::selection {
+    background-color: rgba(89, 125, 119, 0.4);
+}
+
+body {
+    margin: 0;
+    background-color: rgb(241, 242, 243);
+    font-family: "Noto Sans SC", sans-serif;
+}
+
+#container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/*
+ * Intro View(Normal)
+ */
+
+#intro {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+#toggle-lang {
+    background-color: rgba(15, 55, 100, 0.8);
+    color: #fff;
+    position: absolute;
+    border: none;
+    top: 0;
+    right: 0;
+    transform: translateY(calc(-100% - 10px));
+    width: 48px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    transition: background-color .2s;
+}
+
+#toggle-lang:hover {
+    background-color: rgba(15, 55, 100, 0.4);
+}
+
+#intro-card {
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    position: relative;
+}
+
+#intro-card .top {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.divider-v {
+    background-color: rgba(150, 150, 150, 0.2);
+    height: 40px;
+    width: 6px;
+    border-radius: 20px;
+}
+
+#greet :is(h1, p) {
+    font-family: "Noto Serif SC", serif;
+    margin: 0;
+    padding: 0;
+}
+
+#greet p {
+    font-size: 1.2em;
+}
+
+#greet h1 {
+    font-size: 2.6em;
+}
+
+.avatar {
+    display: block;
+    border-radius: 50%;
+}
+
+#intro-card .avatar {
+    width: 120px;
+    height: 120px;
+}
+
+.tag {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+}
+
+.tag>span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(180, 180, 180, 0.1);
+    font-size: .8em;
+    height: 32px;
+    padding: 0 16px;
+    border-radius: 16px;
+}
+
+#link {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+#link>li>:is(a, button) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background-color: rgba(180, 180, 180, 0.1);
+    border: none;
+    transition: background-color .2s;
+}
+
+#link>li>:is(a, button):hover {
+    background-color: rgba(180, 180, 180, 0.4);
+}
+
+button {
+    cursor: pointer;
+}
+
+#link>li>button {
+    background-color: rgba(110, 180, 155, 0.4);
+}
+
+#link>li>button:hover {
+    background-color: rgba(110, 180, 155, 0.6);
+}
+
+/*
+ * Intro / More Toggle Animation (Full)
+ */
+
+@media (min-width: 691px) {
+    /*** view toggle main animation ***/
+
+    #intro,
+    #more {
+        transition: all .3s;
+    }
+
+    .fade-out {
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+    }
+
+    .fade-in {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    #intro.fade-out {
+        transform: translateX(-200px);
+    }
+
+    #more.fade-out {
+        transform: translateX(200px);
+    }
+
+    /*** button icon animation ***/
+
+    #intro #link button>i,
+    #more ul button>i {
+        transition: all .3s;
+    }
+
+    #intro.fade-out #link button>i {
+        transform: rotate(180deg);
+    }
+
+    #more.fade-in ul button>i {
+        transform: rotate(180deg);
+    }
+
+    /*** #more-mask animation ***/
+
+    #more.fade-out,
+    #intro.fade-in {
+        transition: all .3s .2s;
+    }
+
+    #more #more-mask {
+        transform-origin: left center;
+    }
+
+    #more.fade-out #more-mask {
+        transform: scale(.9);
+        opacity: 0;
+        width: 0;
+        filter: blur(10px);
+    }
+
+    #more.fade-in #more-mask {
+        transform: scale(1);
+        opacity: 1;
+        width: 550px;
+        transition: all .3s .2s;
+    }
+
+    #more.fade-out #more-mask {
+        transition: all .3s;
+    }
+}
+
+/*
+ * Intro / More Toggle Animation (Lite)
+ */
+
+@media (max-width: 690px) {
+
+    #intro,
+    #more {
+        transition: all .3s;
+    }
+
+    #intro.fade-out {
+        transform: translateY(-100vh);
+    }
+
+    #more.fade-out {
+        transform: translateY(100vh);
+    }
+
+    .fade-out {
+        opacity: 0;
+        max-height: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    #intro.fade-in,
+    #more.fade-in {
+        max-height: 100vmax;
+    }
+
+    #intro #link button>i,
+    #more ul button>i {
+        transition: all .3s;
+    }
+
+    #intro.fade-out #link button>i {
+        transform: rotate(-90deg);
+    }
+
+    #more.fade-out ul button>i {
+        transform: rotate(90deg);
+    }
+}
+
+/*
+ * More View
+ */
+
+#more {
+    display: flex;
+    gap: 20px;
+}
+
+#side-card {
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 20px;
+    gap: 20px;
+}
+
+#side-card .avatar {
+    width: 60px;
+    height: 60px;
+}
+
+.divider-h {
+    background-color: rgba(150, 150, 150, 0.2);
+    width: 24px;
+    height: 6px;
+    margin: 0 10px;
+    border-radius: 3px;
+    align-self: center;
+}
+
+#more ul {
+    flex-direction: column;
+    gap: 12px;
+}
+
+#more ul>li>:is(a, button) {
+    display: flex;
+    width: 100%;
+    height: 36px;
+    border-radius: 18px;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    transition: background-color .2s;
+}
+
+#more ul>li>a:hover {
+    background-color: rgba(180, 180, 180, 0.1);
+}
+
+#more ul>li>button {
+    background-color: rgba(180, 180, 180, 0.1);
+}
+
+#more ul>li>button:hover {
+    background-color: rgba(180, 180, 180, 0.4);
+}
+
+#more-mask {
+    overflow: hidden;
+}
+
+#more-mask,
+#more-card {
+    width: 550px;
+    border-radius: 20px;
+}
+
+#more-card {
+    height: 100%;
+    padding: 50px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-sizing: border-box;
+}
+
+#more-card {
+    font-family: "Noto Serif SC", serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;
+}
+
+#more-card>h2 {
+    margin-bottom: .5em;
+}
+
+#more-card>* {
+    margin: 0;
+}
+
+/*
+ * Lite View
+ */
+
+.lite {
+    display: none;
+}
+
+@media (max-width: 690px) {
+    .lite {
+        display: unset;
+    }
+
+    #container {
+        flex-direction: column;
+    }
+
+    #intro-card {
+        width: 100vw;
+        box-sizing: border-box;
+        border-radius: 0;
+    }
+
+    #intro-card .top {
+        flex-direction: column;
+    }
+
+    #intro-card .top .divider-v {
+        display: none;
+    }
+
+    #toggle-lang {
+        transform: none;
+        margin: 20px;
+    }
+
+    #link {
+        gap: clamp(10px, calc((100vw - 250px) / 6), 20px);
+    }
+
+    #more {
+        flex-direction: column;
+    }
+
+    #more-mask,
+    #more-card {
+        width: 100%;
+    }
+
+    #side-card {
+        flex-direction: row;
+        border-radius: 0;
+    }
+
+    #more ul {
+        flex-direction: row;
+        align-items: center;
+        flex: 1;
+        gap: 10px;
+    }
+
+    #more ul>li {
+        flex: 1;
+    }
+
+    #side-card .divider-h {
+        height: 24px;
+        width: 6px;
+        border-radius: 3px;
+    }
+
+    #more-mask,
+    #more-card {
+        border-radius: 0;
+    }
+
+    #more-card {
+        padding: 40px 30px;
+    }
+
+    .slogan {
+        text-align: center;
+    }
+
+    #intro #link button>i {
+        transform: rotate(90deg);
+    }
+
+    #more ul button>i {
+        transform: rotate(-90deg);
+    }
+}
+
+@media (max-width: 410px) {
+    #side-card .divider-h {
+        display: none;
+    }
+}
