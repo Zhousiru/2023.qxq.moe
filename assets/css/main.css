@@ -207,9 +207,13 @@ button {
 
     /*** #more-mask animation ***/
 
-    #more.fade-out,
-    #intro.fade-in {
+    #more.fade-out {
         transition: all .3s .2s;
+    }
+
+    #intro.fade-in {
+        /* wait more... */
+        transition: all .3s .3s;
     }
 
     #more #more-mask {
