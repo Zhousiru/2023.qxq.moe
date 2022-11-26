@@ -224,7 +224,6 @@ button {
         transform: scale(.9);
         opacity: 0;
         width: 0;
-        filter: blur(10px);
     }
 
     #more.fade-in #more-mask {
