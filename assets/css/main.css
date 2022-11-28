@@ -385,7 +385,6 @@ button {
     }
 
     #intro-card {
-        width: 100vw;
         box-sizing: border-box;
         border-radius: 0;
     }
@@ -415,9 +414,11 @@ button {
         flex-direction: column;
     }
 
+    #intro-card,
     #more-mask,
     #more-card {
-        width: 100%;
+        width: 100vw;
+        max-width: 500px;
     }
 
     #side-card {
