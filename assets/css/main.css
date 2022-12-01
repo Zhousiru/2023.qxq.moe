@@ -6,11 +6,9 @@ body {
     margin: 0;
     background-color: rgb(241, 242, 243);
     font-family: "Noto Sans SC", sans-serif;
-    overflow-x: hidden;
 }
 
 #container {
-    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,6 +17,20 @@ body {
 a {
     text-decoration: none;
     color: inherit;
+}
+
+/*
+ * Page Height
+ */
+
+html,
+body {
+    height: 100%;
+}
+
+#container {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
 }
 
 /*
