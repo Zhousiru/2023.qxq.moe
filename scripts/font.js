@@ -30,7 +30,7 @@ try {
 /*
  * edit css
  */
-console.log("   Edit CSS...")
+console.log("   Override CSS...")
 const template = `
 @font-face {
     font-family: "Noto Sans SC";
@@ -49,7 +49,7 @@ fs.writeFileSync('dist/assets/css/font.css', template)
 /*
  * get text from pages
  */
-console.log("   Override text...")
+console.log("   Get text...")
 const getText = (paths, selectors) => {
     let text = ''
 
