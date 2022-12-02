@@ -21,11 +21,11 @@ jobs:
           node-version: 18
 
       - name: Set up scripts
-      - working-directory: scripts/
-      - run: npm install
+        working-directory: scripts/
+        run: npm install
 
       - name: Generate font subsets
-      - run: node scripts/font.js
+        run: node scripts/font.js
 
       - name: Deploy to production server
         uses: appleboy/scp-action@master
