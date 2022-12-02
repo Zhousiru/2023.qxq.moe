@@ -15,7 +15,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Deploy to Production Server
+      -
+
+      - name: Deploy to production server
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.SERVER_IP }}
