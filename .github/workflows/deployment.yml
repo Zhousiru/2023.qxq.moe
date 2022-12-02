@@ -36,3 +36,4 @@ jobs:
           passphrase: ${{ secrets.DEPLOY_SSH_PASS }}
           source: "dist/"
           target: ${{ secrets.TARGET_PATH }}
+          strip_components: 1
