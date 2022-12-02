@@ -1,0 +1,17 @@
+{
+  "name": "scripts",
+  "version": "1.0.0",
+  "description": "Scripts for 2013.qxq.moe",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "fontkit": "^2.0.2",
+    "fs-extra": "^11.1.0",
+    "subset-font": "^1.6.1"
+  }
+}

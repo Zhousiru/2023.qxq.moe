@@ -1,0 +1,11 @@
+@font-face {
+    font-family: "Noto Sans SC";
+    font-display: swap;
+    src: url(../font/NotoSansSC-Regular.otf);
+}
+
+@font-face {
+    font-family: "Noto Serif SC";
+    font-display: swap;
+    src: url(../font/NotoSerifSC-Regular.otf);
+}
