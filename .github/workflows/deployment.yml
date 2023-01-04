@@ -24,8 +24,8 @@ jobs:
         working-directory: scripts/
         run: npm install
 
-      - name: Generate font subsets
-        run: node scripts/font.js
+      - name: Run build scripts
+        run: node scripts/copy.js && node scripts/font.js && node scripts/thumbnail.js
 
       - name: Deploy to production server
         uses: appleboy/scp-action@master

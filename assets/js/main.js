@@ -1,5 +1,16 @@
 ;(() => {
     document.addEventListener('DOMContentLoaded', () => {
+        for (const parent of ['#intro-card', '#side-card']) {
+            const avatarImg = document.querySelector(`${parent} .avatar`)
+            const avatarMaskDiv = document.querySelector(
+                `${parent} .avatar-mask`
+            )
+
+            avatarImg.onload = () => {
+                avatarMaskDiv.setAttribute('status', 'loaded')
+            }
+        }
+
         const moreBtn = document.querySelector('#link button')
         const backBtn = document.querySelector('#more ul button')
         const introDiv = document.querySelector('#intro')

@@ -103,14 +103,28 @@ body {
     font-size: 2.6em;
 }
 
-.avatar {
+.avatar,
+.avatar-mask {
     display: block;
     border-radius: 50%;
+    background-size: cover;
 }
 
-#intro-card .avatar {
+#intro-card .avatar,
+#intro-card .avatar-mask {
     width: 120px;
     height: 120px;
+}
+
+.avatar-mask {
+    position: absolute;
+    backdrop-filter: blur(20px);
+    transition: opacity 0.2s;
+}
+
+.avatar-mask[status='loaded'] {
+    opacity: 0;
+    pointer-events: none;
 }
 
 .tag {
@@ -300,7 +314,8 @@ button {
     gap: 20px;
 }
 
-#side-card .avatar {
+#side-card .avatar,
+#side-card .avatar-mask {
     width: 60px;
     height: 60px;
 }

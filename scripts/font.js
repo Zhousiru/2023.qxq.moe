@@ -4,33 +4,12 @@ const cheerio = require('cheerio')
 const process = require('process')
 const path = require('path')
 
-console.log("⚡ Start to generate fonts...")
-
-/*
- * copy files
- */
-console.log("   Copy files...")
-
-fs.removeSync(`dist/`)
-const copy = (path) => {
-    return fs.copySync(path, `dist/${path}`)
-}
-
-try {
-
-    copy("index.html")
-    copy("en/")
-    copy("assets/")
-
-} catch (err) {
-    console.error(err)
-    process.exit()
-}
+console.log('⚡ Start to generate fonts...')
 
 /*
  * edit css
  */
-console.log("   Override CSS...")
+console.log('   Override CSS...')
 const template = `
 @font-face {
     font-family: "Noto Sans SC";
@@ -49,7 +28,7 @@ fs.writeFileSync('dist/assets/css/font.css', template)
 /*
  * get text from pages
  */
-console.log("   Get text...")
+console.log('   Get text...')
 const getText = (paths, selectors) => {
     let text = ''
 
@@ -66,30 +45,24 @@ const getText = (paths, selectors) => {
 }
 
 let fontMap = {
-    "NotoSansSC-Regular.otf": "",
-    "NotoSerifSC-Regular.otf": ""
+    'NotoSansSC-Regular.otf': '',
+    'NotoSerifSC-Regular.otf': '',
 }
 
-fontMap['NotoSansSC-Regular.otf'] = getText([
-    './index.html',
-    './en/index.html'
-], [
-    '#toggle-lang',
-    '.tag'
-])
+fontMap['NotoSansSC-Regular.otf'] = getText(
+    ['./index.html', './en/index.html'],
+    ['#toggle-lang', '.tag']
+)
 
-fontMap['NotoSerifSC-Regular.otf'] = getText([
-    './index.html',
-    './en/index.html'
-], [
-    '#greet',
-    '#more-card'
-])
+fontMap['NotoSerifSC-Regular.otf'] = getText(
+    ['./index.html', './en/index.html'],
+    ['#greet', '#more-card']
+)
 
 /*
  * gen fonts
  */
-console.log("   Generate fonts...")
+console.log('   Generate fonts...')
 const genFont = async (fontFilename, text) => {
     const fullpath = `dist/assets/font/${fontFilename}`
 
@@ -99,7 +72,10 @@ const genFont = async (fontFilename, text) => {
         targetFormat: 'woff2',
     })
 
-    fs.writeFileSync(`dist/assets/font/${path.parse(fontFilename).name}.woff2`, subsetBuf)
+    fs.writeFileSync(
+        `dist/assets/font/${path.parse(fontFilename).name}.woff2`,
+        subsetBuf
+    )
     fs.removeSync(fullpath)
 }
 
@@ -110,6 +86,6 @@ for (const [k, v] of Object.entries(fontMap)) {
 }
 
 Promise.all(p).then(() => {
-    console.log("👌 All done!")
+    console.log('👌 All done!')
     process.exit()
 })
