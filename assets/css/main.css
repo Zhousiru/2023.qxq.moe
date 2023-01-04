@@ -5,7 +5,7 @@
 body {
     margin: 0;
     background-color: rgb(241, 242, 243);
-    font-family: "Noto Sans SC", sans-serif;
+    font-family: 'Noto Sans SC', sans-serif;
 }
 
 #container {
@@ -59,7 +59,7 @@ body {
     align-items: center;
     justify-content: center;
     border-radius: 15px;
-    transition: background-color .2s;
+    transition: background-color 0.2s;
 }
 
 #toggle-lang:hover {
@@ -90,7 +90,7 @@ body {
 }
 
 #greet :is(h1, p) {
-    font-family: "Noto Serif SC", serif;
+    font-family: 'Noto Serif SC', serif;
     margin: 0;
     padding: 0;
 }
@@ -126,12 +126,12 @@ ul {
     display: flex;
 }
 
-.tag>span {
+.tag > span {
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: rgba(180, 180, 180, 0.1);
-    font-size: .8em;
+    font-size: 0.8em;
     height: 32px;
     padding: 0 16px;
     border-radius: 16px;
@@ -143,7 +143,7 @@ ul {
     gap: 20px;
 }
 
-#link>li>:is(a, button) {
+#link > li > :is(a, button) {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -152,11 +152,11 @@ ul {
     border-radius: 25px;
     background-color: rgba(180, 180, 180, 0.1);
     border: none;
-    transition: background-color .2s;
+    transition: background-color 0.2s;
     color: rgba(0, 0, 0, 0.8);
 }
 
-#link>li>:is(a, button):hover {
+#link > li > :is(a, button):hover {
     background-color: rgba(180, 180, 180, 0.4);
 }
 
@@ -164,11 +164,11 @@ button {
     cursor: pointer;
 }
 
-#link>li>button {
+#link > li > button {
     background-color: rgba(110, 180, 155, 0.4);
 }
 
-#link>li>button:hover {
+#link > li > button:hover {
     background-color: rgba(110, 180, 155, 0.6);
 }
 
@@ -181,7 +181,7 @@ button {
 
     #intro,
     #more {
-        transition: all .3s;
+        transition: all 0.3s;
     }
 
     .fade-out {
@@ -205,28 +205,28 @@ button {
 
     /*** button icon animation ***/
 
-    #intro #link button>i,
-    #more ul button>i {
-        transition: all .3s;
+    #intro #link button > i,
+    #more ul button > i {
+        transition: all 0.3s;
     }
 
-    #intro.fade-out #link button>i {
+    #intro.fade-out #link button > i {
         transform: rotate(180deg);
     }
 
-    #more.fade-in ul button>i {
+    #more.fade-in ul button > i {
         transform: rotate(180deg);
     }
 
     /*** #more-mask animation ***/
 
     #more.fade-out {
-        transition: all .3s .2s;
+        transition: all 0.3s 0.2s;
     }
 
     #intro.fade-in {
         /* wait more... */
-        transition: all .3s .3s;
+        transition: all 0.3s 0.3s;
     }
 
     #more #more-mask {
@@ -234,7 +234,7 @@ button {
     }
 
     #more.fade-out #more-mask {
-        transform: scale(.9);
+        transform: scale(0.9);
         opacity: 0;
         width: 0;
     }
@@ -243,11 +243,11 @@ button {
         transform: scale(1);
         opacity: 1;
         width: 550px;
-        transition: all .3s .2s;
+        transition: all 0.3s 0.2s;
     }
 
     #more.fade-out #more-mask {
-        transition: all .3s;
+        transition: all 0.3s;
     }
 }
 
@@ -256,29 +256,28 @@ button {
  */
 
 @media screen and (max-width: 690px) {
-
     #intro,
     #more {
-        transition: opacity .3s, transform .3s;
+        transition: opacity 0.3s, transform 0.3s;
     }
 
     .fade-out {
         opacity: 0;
         position: absolute;
         visibility: hidden;
-        transform: scale(.9);
+        transform: scale(0.9);
     }
 
-    #intro #link button>i,
-    #more ul button>i {
-        transition: all .3s;
+    #intro #link button > i,
+    #more ul button > i {
+        transition: all 0.3s;
     }
 
-    #intro.fade-out #link button>i {
+    #intro.fade-out #link button > i {
         transform: rotate(45deg);
     }
 
-    #more.fade-out ul button>i {
+    #more.fade-out ul button > i {
         transform: rotate(0);
     }
 }
@@ -320,7 +319,7 @@ button {
     gap: 12px;
 }
 
-#more ul>li>:is(a, button) {
+#more ul > li > :is(a, button) {
     display: flex;
     width: 100%;
     height: 36px;
@@ -328,19 +327,19 @@ button {
     align-items: center;
     justify-content: center;
     border: none;
-    transition: background-color .2s;
+    transition: background-color 0.2s;
     color: rgba(0, 0, 0, 0.8);
 }
 
-#more ul>li>a:hover {
+#more ul > li > a:hover {
     background-color: rgba(180, 180, 180, 0.1);
 }
 
-#more ul>li>button {
+#more ul > li > button {
     background-color: rgba(180, 180, 180, 0.1);
 }
 
-#more ul>li>button:hover {
+#more ul > li > button:hover {
     background-color: rgba(180, 180, 180, 0.4);
 }
 
@@ -362,18 +361,18 @@ button {
 }
 
 #more-card {
-    font-family: "Noto Serif SC", serif;
+    font-family: 'Noto Serif SC', serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 1em;
 }
 
-#more-card>h2 {
-    margin-bottom: .5em;
+#more-card > h2 {
+    margin-bottom: 0.5em;
 }
 
-#more-card>* {
+#more-card > * {
     margin: 0;
 }
 
@@ -447,7 +446,7 @@ button {
         gap: 10px;
     }
 
-    #more ul>li {
+    #more ul > li {
         flex: 1;
     }
 
@@ -470,7 +469,7 @@ button {
         text-align: center;
     }
 
-    #more ul button>i {
+    #more ul button > i {
         transform: rotate(45deg);
     }
 }
