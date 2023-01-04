@@ -6,8 +6,12 @@
                 `${parent} .avatar-mask`
             )
 
-            avatarImg.onload = () => {
+            if (avatarImg.complete) {
                 avatarMaskDiv.setAttribute('status', 'loaded')
+            } else {
+                avatarImg.onload = () => {
+                    avatarMaskDiv.setAttribute('status', 'loaded')
+                }
             }
         }
 
