@@ -20,7 +20,7 @@ async function genThumbnail() {
 
     for (const path of ['dist/index.html', 'dist/en/index.html']) {
         let page = fs.readFileSync(path).toString()
-        page = page.replace('{{THUMBNAIL}}', imgBase64)
+        page = page.replaceAll('{{THUMBNAIL}}', imgBase64)
         fs.writeFileSync(path, page)
     }
 
