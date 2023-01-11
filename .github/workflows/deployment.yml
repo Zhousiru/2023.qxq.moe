@@ -34,7 +34,6 @@ jobs:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.DEPLOY_SSH_KEY }}
-          passphrase: ${{ secrets.DEPLOY_SSH_PASS }}
           source: "dist/"
           target: ${{ secrets.TARGET_PATH }}
           strip_components: 1
